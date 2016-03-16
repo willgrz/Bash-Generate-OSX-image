@@ -1,0 +1,22 @@
+This creates OSX bootable ISO files (on a Mac/via modified EFI/extra bootloader/VM) from Apple supplied OS X installers (Appstore, *.app).
+
+Nothing special, feed it a DMG file (InstallESD.dmg in Install*/Contents/SharedSupport/ on OSX 10.9+) and it gives you an ISO in the same dir as the DMG is in.
+ISO has same name as source DMG.
+Do not use spaces in DMG filename.
+
+>Why same dir? 
+As i did not copy the entire *.app folder and the creation actually does not need anything besides the DMG i just copied the DMGs to "VERSION.dmg" (i.e. Yosemite.dmg)
+and let this script loop over it, creating me ISOs for all 10.9+ in one run.
+
+This is mainly based on something i found here:
+https://apple.stackexchange.com/questions/128319/official-way-to-obtain-an-os-x-iso-file
+
+Edits took around 10min.
+
+
+Usage:
+# bash -x conv.sh /Users/william/ISO/new/Yosemite.dmg
+
+Gives:
+# ls -la /Users/william/ISO/new/Yosemite.iso
+-rw-r--r--  1 william  staff  6000869376 Mar 14 23:04 Yosemite.iso
